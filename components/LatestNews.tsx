@@ -1,170 +1,83 @@
 'use client';
-import Link from 'next/link';
+import { useEffect, useRef } from 'react';
 
-const news = [
+const testimonials = [
     {
-        date: 'Feb 28, 2026',
-        category: 'Technology',
-        title: 'What Is the Farming Best Practices Initiative?',
-        excerpt: 'BharatBloomm FarmTech launches its annual best practices initiative, connecting farmers with cutting-edge research and field-tested techniques for better yields.',
-        emoji: '🌿',
-        readTime: '5 min read',
-        color: '#1a4d24',
+        quote: "BharatBloomm's cordless tiller transformed my farming operations. The lithium battery lasts all day, and I've reduced my labor costs by 40%. Best investment I've made!",
+        name: 'Rajesh Singh',
+        state: 'Punjab',
+        initials: 'RS',
     },
     {
-        date: 'Feb 22, 2026',
-        category: 'Innovation',
-        title: 'Artificial Intelligence in Indian Agriculture: 2026 Update',
-        excerpt: 'Our AI crop monitoring system now covers 36,000+ acres. Here is what we learned about using machine learning to predict and prevent crop failures at scale.',
-        emoji: '🤖',
-        readTime: '8 min read',
-        color: '#2d7a3a',
+        quote: "The electric tractor is a game-changer! Zero emissions, no diesel costs, and incredibly powerful. BharatBloomm's technology is truly the future of Indian agriculture.",
+        name: 'Priya Deshmukh',
+        state: 'Maharashtra',
+        initials: 'PD',
     },
     {
-        date: 'Feb 15, 2026',
-        category: 'Success Story',
-        title: 'What is the Farming Best Crop Opportunity for Rabi 2026?',
-        excerpt: 'A deep dive into which crops are showing the highest profitability this Rabi season, with expert analysis from our team of agricultural economists and agronomists.',
-        emoji: '📊',
-        readTime: '6 min read',
-        color: '#3d9d4e',
+        quote: "Multipurpose tools from BharatBloomm work perfectly across my different crops. The battery power is reliable, and the equipment is easy to maintain. Highly recommended!",
+        name: 'Arun Kumar',
+        state: 'Karnataka',
+        initials: 'AK',
     },
 ];
 
 export default function LatestNews() {
+    const ref = useRef<HTMLElement>(null);
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        el.querySelectorAll('.testimonial-card').forEach(card => {
+            const observer = new IntersectionObserver(([entry]) => {
+                if (entry.isIntersecting) card.classList.add('visible');
+            }, { threshold: 0.1 });
+            observer.observe(card);
+        });
+    }, []);
+
     return (
-        <section id="news" style={{ padding: '80px 24px', background: 'white' }}>
-            <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                {/* Header */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '48px' }}>
-                    <div>
-                        <div className="section-label" style={{ marginBottom: '12px' }}>Our Updates</div>
-                        <h2 className="section-heading">Check Our Latest News</h2>
-                    </div>
-                    <Link
-                        href="/blog"
-                        style={{
-                            color: '#2d7a3a',
-                            textDecoration: 'none',
-                            fontWeight: 600,
-                            fontSize: '0.9rem',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '6px',
-                            border: '2px solid #2d7a3a',
-                            padding: '10px 20px',
-                            borderRadius: '50px',
+        <section id="testimonials" ref={ref} style={{ padding: '100px 0', background: '#fff' }}>
+            <div className="container">
+                <div className="section-title">
+                    <h2>What Our Farmers Say</h2>
+                    <p>Real experiences from farmers across India</p>
+                </div>
+                <div className="testimonials-grid">
+                    {testimonials.map((t, i) => (
+                        <div key={i} className="testimonial-card slide-up" style={{
+                            background: 'rgba(255,255,255,0.6)',
+                            backdropFilter: 'blur(16px)',
+                            border: '1px solid rgba(255,255,255,0.4)',
+                            borderLeft: '4px solid #4CAF50',
+                            borderRadius: '20px',
+                            padding: '32px',
+                            boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
                             transition: 'all 0.3s ease',
                         }}
-                    >
-                        View All Articles →
-                    </Link>
-                </div>
-
-                {/* News Cards */}
-                <div className="news-grid">
-                    {news.map((article, index) => (
-                        <article
-                            key={article.title}
-                            className="card"
-                            style={{ overflow: 'hidden', cursor: 'pointer' }}
+                            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-6px)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 12px 48px rgba(0,0,0,0.12)'; }}
+                            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(0,0,0,0.08)'; }}
                         >
-                            {/* Image placeholder */}
-                            <div style={{
-                                height: '200px',
-                                background: `linear-gradient(135deg, ${article.color}ee, ${article.color}88)`,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                position: 'relative',
-                                overflow: 'hidden',
-                            }}>
+                            {/* Stars */}
+                            <div style={{ color: '#FFC107', fontSize: '1.1rem', marginBottom: '16px' }}>★★★★★</div>
+                            <p style={{ color: '#555', fontStyle: 'italic', lineHeight: 1.7, marginBottom: '20px' }}>
+                                &ldquo;{t.quote}&rdquo;
+                            </p>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                                 <div style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    backgroundImage: 'url("/hero-bg.png")',
-                                    backgroundSize: 'cover',
-                                    backgroundPosition: `center ${index * 20}%`,
-                                    opacity: 0.3,
-                                }} />
-                                <div style={{
-                                    position: 'relative',
-                                    fontSize: '4rem',
-                                }}>
-                                    {article.emoji}
-                                </div>
-                                {/* Category badge */}
-                                <div style={{
-                                    position: 'absolute',
-                                    top: '16px',
-                                    left: '16px',
-                                    background: 'rgba(255,255,255,0.9)',
-                                    color: article.color,
-                                    fontSize: '0.72rem',
-                                    fontWeight: 700,
-                                    padding: '4px 12px',
-                                    borderRadius: '20px',
-                                    letterSpacing: '0.05em',
-                                    textTransform: 'uppercase',
-                                }}>
-                                    {article.category}
+                                    width: 50, height: 50, background: 'linear-gradient(135deg, #4CAF50, #2E7D32)',
+                                    borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    color: 'white', fontWeight: 700, fontSize: '1.2rem', flexShrink: 0,
+                                    fontFamily: 'Playfair Display, serif',
+                                }}>{t.initials}</div>
+                                <div>
+                                    <h4 style={{ fontSize: '1.1rem', marginBottom: '4px' }}>{t.name}</h4>
+                                    <span style={{ fontSize: '0.9rem', color: '#555' }}>{t.state}</span>
                                 </div>
                             </div>
-
-                            {/* Content */}
-                            <div style={{ padding: '24px' }}>
-                                <div style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '12px',
-                                    marginBottom: '12px',
-                                    color: '#718096',
-                                    fontSize: '0.8rem',
-                                }}>
-                                    <span>📅 {article.date}</span>
-                                    <span>·</span>
-                                    <span>⏱️ {article.readTime}</span>
-                                </div>
-
-                                <h3 style={{
-                                    fontSize: '1rem',
-                                    fontWeight: 700,
-                                    color: '#1a2e1a',
-                                    marginBottom: '12px',
-                                    lineHeight: 1.4,
-                                }}>
-                                    {article.title}
-                                </h3>
-
-                                <p style={{
-                                    fontSize: '0.85rem',
-                                    color: '#4a5568',
-                                    lineHeight: 1.6,
-                                    marginBottom: '20px',
-                                    display: '-webkit-box',
-                                    WebkitLineClamp: 3,
-                                    WebkitBoxOrient: 'vertical',
-                                    overflow: 'hidden',
-                                }}>
-                                    {article.excerpt}
-                                </p>
-
-                                <div style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '6px',
-                                    color: '#2d7a3a',
-                                    fontWeight: 600,
-                                    fontSize: '0.85rem',
-                                }}>
-                                    Read Article <span>→</span>
-                                </div>
-                            </div>
-                        </article>
+                        </div>
                     ))}
                 </div>
             </div>
-
         </section>
     );
 }

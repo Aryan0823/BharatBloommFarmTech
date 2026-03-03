@@ -8,7 +8,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -16,140 +16,95 @@ export default function Navbar() {
   const navLinks = [
     { label: 'Home', href: '#home' },
     { label: 'Products', href: '#products' },
-    { label: 'Services', href: '#services' },
-    { label: 'About', href: '#about' },
-    { label: 'Blog', href: '#news' },
+    { label: 'About Us', href: '#about' },
+    { label: 'Technology', href: '#technology' },
     { label: 'Contact', href: '#contact' },
   ];
 
   return (
-    <nav
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-        transition: 'all 0.3s ease',
-        background: scrolled ? 'rgba(255,255,255,0.95)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        boxShadow: scrolled ? '0 2px 20px rgba(0,0,0,0.08)' : 'none',
-        padding: scrolled ? '12px 0' : '20px 0',
-      }}
-    >
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
+      padding: scrolled ? '12px 0' : '20px 0',
+      transition: 'all 0.3s ease',
+      background: scrolled ? 'rgba(255,255,255,0.6)' : 'transparent',
+      backdropFilter: scrolled ? 'blur(16px)' : 'none',
+      WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.4)' : 'none',
+      boxShadow: scrolled ? '0 4px 16px rgba(0,0,0,0.06)' : 'none',
+    }}>
+      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         {/* Logo */}
         <Link href="#home" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-          {/* ✏️ Logo icon — replace /logo.svg in public/ to update everywhere */}
-          <Image
-            src="/logo.svg"
-            alt="BharatBloomm FarmTech Logo"
-            width={48}
-            height={48}
-            style={{
-              filter: scrolled ? 'none' : 'brightness(0) invert(1)',
-              transition: 'filter 0.3s ease',
-            }}
-            priority
-          />
-          <div>
-            <div style={{
-              fontSize: '0.85rem',
-              fontWeight: 800,
-              lineHeight: 1.1,
-              color: scrolled ? '#1a4d24' : 'white',
-              fontFamily: "'Playfair Display', serif",
-              textShadow: scrolled ? 'none' : '0 1px 3px rgba(0,0,0,0.3)',
-            }}>
-              BharatBloomm<br />FarmTech
-            </div>
-            <div style={{ fontSize: '0.55rem', color: scrolled ? '#4caf62' : '#b5e05a', fontWeight: 500, letterSpacing: '0.05em' }}>
-              PRIVATE LIMITED
-            </div>
-          </div>
+          <Image src="/logo.svg" alt="BharatBloomm FarmTech Logo" width={48} height={48} priority />
+          <span style={{
+            fontSize: '1.4rem', fontWeight: 700,
+            fontFamily: "'Playfair Display', serif",
+            background: 'linear-gradient(135deg, #4CAF50, #2E7D32)',
+            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+          }}>
+            BharatBloomm FarmTech
+          </span>
         </Link>
 
-        {/* Desktop Nav Links */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }} className="desktop-nav">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              style={{
-                color: scrolled ? '#2d7a3a' : 'rgba(255,255,255,0.9)',
-                textDecoration: 'none',
-                fontWeight: 500,
-                fontSize: '0.875rem',
-                padding: '8px 14px',
-                borderRadius: '8px',
-                transition: 'all 0.2s ease',
+        {/* Desktop Nav */}
+        <ul className="desktop-nav" style={{ listStyle: 'none', gap: '32px', alignItems: 'center', margin: 0, padding: 0 }}>
+          {navLinks.map(link => (
+            <li key={link.href}>
+              <a href={link.href} style={{
+                textDecoration: 'none', color: '#1B1B1B', fontWeight: 500,
+                transition: 'color 0.3s ease', fontSize: '0.95rem',
               }}
-              onMouseEnter={(e) => {
-                (e.target as HTMLElement).style.background = 'rgba(45,122,58,0.1)';
-                (e.target as HTMLElement).style.color = '#2d7a3a';
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLElement).style.background = 'transparent';
-                (e.target as HTMLElement).style.color = scrolled ? '#2d7a3a' : 'rgba(255,255,255,0.9)';
-              }}
-            >
-              {link.label}
-            </Link>
+                onMouseEnter={e => (e.currentTarget.style.color = '#4CAF50')}
+                onMouseLeave={e => (e.currentTarget.style.color = '#1B1B1B')}
+              >
+                {link.label}
+              </a>
+            </li>
           ))}
-          <Link href="#contact" className="btn-primary" style={{ marginLeft: '8px', padding: '10px 24px', fontSize: '0.875rem' }}>
-            Get Started
-          </Link>
-        </div>
+          <li>
+            <a href="#contact" style={{
+              padding: '12px 28px',
+              background: 'linear-gradient(135deg, #4CAF50, #2E7D32)',
+              color: 'white', borderRadius: '50px', textDecoration: 'none',
+              fontWeight: 600, fontSize: '0.95rem',
+              boxShadow: '0 4px 16px rgba(76,175,80,0.3)',
+              transition: 'all 0.3s ease', display: 'inline-block',
+            }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 6px 24px rgba(76,175,80,0.4)'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 16px rgba(76,175,80,0.3)'; }}
+            >
+              Get a Quote
+            </a>
+          </li>
+        </ul>
 
-        {/* Mobile Hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          style={{
-            display: 'none',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: '8px',
-          }}
-          className="mobile-menu-btn"
-          aria-label="Toggle menu"
-        >
-          <div style={{ width: '24px', height: '2px', background: scrolled ? '#2d7a3a' : 'white', marginBottom: '5px', transition: 'all 0.3s' }} />
-          <div style={{ width: '24px', height: '2px', background: scrolled ? '#2d7a3a' : 'white', marginBottom: '5px', transition: 'all 0.3s' }} />
-          <div style={{ width: '24px', height: '2px', background: scrolled ? '#2d7a3a' : 'white', transition: 'all 0.3s' }} />
+        {/* Mobile Button */}
+        <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)}
+          style={{ background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer', color: '#1B1B1B' }}>
+          {menuOpen ? '✕' : '☰'}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {menuOpen && (
         <div style={{
-          background: 'white',
-          padding: '16px 24px',
-          borderTop: '1px solid #e2e8f0',
+          background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(16px)',
+          padding: '20px 24px', borderTop: '1px solid rgba(255,255,255,0.4)',
         }}>
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
+          {navLinks.map(link => (
+            <a key={link.href} href={link.href}
               onClick={() => setMenuOpen(false)}
-              style={{
-                display: 'block',
-                color: '#2d7a3a',
-                textDecoration: 'none',
-                fontWeight: 500,
-                padding: '12px 0',
-                borderBottom: '1px solid #f0f0f0',
-              }}
-            >
+              style={{ display: 'block', padding: '12px 0', textDecoration: 'none', color: '#1B1B1B', fontWeight: 500, borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
               {link.label}
-            </Link>
+            </a>
           ))}
-          <Link href="#contact" className="btn-primary" style={{ marginTop: '16px', display: 'inline-block' }}>
-            Get Started
-          </Link>
+          <a href="#contact" onClick={() => setMenuOpen(false)} style={{
+            display: 'block', marginTop: '16px', padding: '14px', textAlign: 'center',
+            background: 'linear-gradient(135deg, #4CAF50, #2E7D32)', color: 'white',
+            borderRadius: '50px', textDecoration: 'none', fontWeight: 600,
+          }}>Get a Quote</a>
         </div>
       )}
-
     </nav>
   );
 }

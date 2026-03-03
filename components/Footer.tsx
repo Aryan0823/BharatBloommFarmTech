@@ -2,138 +2,94 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const footerLinks = {
-    Company: [
-        { label: 'About Us', href: '/about' },
-        { label: 'Our Team', href: '/team' },
-        { label: 'Careers', href: '/careers' },
-        { label: 'Press & Media', href: '/press' },
-        { label: 'Investors', href: '/investors' },
-    ],
-    Products: [
-        { label: 'Crop Monitor', href: '/products/crop-monitor' },
-        { label: 'Smart Irrigation', href: '/products/irrigation' },
-        { label: 'Soil Analytics', href: '/products/soil' },
-        { label: 'Farm Dashboard', href: '/products/dashboard' },
-        { label: 'Mobile App', href: '/products/app' },
-    ],
-    Services: [
-        { label: 'On-Farm Consulting', href: '/services/consulting' },
-        { label: 'Training Programs', href: '/services/training' },
-        { label: 'Data Analytics', href: '/services/analytics' },
-        { label: 'Market Linkage', href: '/services/market' },
-    ],
-    Support: [
-        { label: 'Help Center', href: '/help' },
-        { label: 'Documentation', href: '/docs' },
-        { label: 'Community', href: '/community' },
-        { label: 'Contact Us', href: '/contact' },
-        { label: 'Blog', href: '/blog' },
-    ],
-};
+const footerColumns = [
+    {
+        title: 'Products',
+        links: [
+            { label: 'Cordless Tillers', href: '#products' },
+            { label: 'Electric Tractors', href: '#products' },
+            { label: 'Farming Robots', href: '#products' },
+            { label: 'Power Tools', href: '#products' },
+            { label: 'All Products', href: '#products' },
+        ],
+    },
+    {
+        title: 'Company',
+        links: [
+            { label: 'About Us', href: '#about' },
+            { label: 'Technology', href: '#technology' },
+            { label: 'Testimonials', href: '#testimonials' },
+            { label: 'Careers', href: '#contact' },
+            { label: 'Contact', href: '#contact' },
+        ],
+    },
+    {
+        title: 'Resources',
+        links: [
+            { label: 'User Manuals', href: '#' },
+            { label: 'FAQs', href: '#' },
+            { label: 'Blog', href: '#' },
+            { label: 'Support', href: '#' },
+            { label: 'Privacy Policy', href: '#' },
+        ],
+    },
+];
+
+const socialIcons = [
+    { label: 'LinkedIn', icon: 'in' },
+    { label: 'Twitter', icon: '𝕏' },
+    { label: 'Instagram', icon: '⬡' },
+    { label: 'YouTube', icon: '▶' },
+];
 
 export default function Footer() {
     return (
-        <footer id="contact" style={{ background: '#0f1f12', color: 'white' }}>
-            {/* Main footer */}
-            <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '64px 24px 48px' }}>
-                <div className="footer-grid">
-                    {/* Brand column */}
+        <footer id="contact-footer" style={{ background: '#1B4332', color: 'white', padding: '60px 0 0' }}>
+            <div className="container">
+                {/* Main Footer Grid */}
+                <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr 1fr', gap: '48px', paddingBottom: '48px', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+                    {/* Brand Column */}
                     <div>
-                        {/* ✏️ Logo — replace /logo.svg in public/ to update everywhere */}
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
-                            <Image
-                                src="/logo.svg"
-                                alt="BharatBloomm FarmTech Logo"
-                                width={52}
-                                height={52}
-                            />
-                            <div>
-                                <div style={{
-                                    fontSize: '0.9rem',
-                                    fontWeight: 800,
-                                    fontFamily: "'Playfair Display', serif",
-                                    lineHeight: 1.2,
-                                    color: 'white',
-                                }}>
-                                    BharatBloomm<br />FarmTech
-                                </div>
-                                <div style={{ fontSize: '0.6rem', color: '#8cc63f', fontWeight: 500, letterSpacing: '0.05em' }}>
-                                    PRIVATE LIMITED
-                                </div>
-                            </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+                            {/* ✏️ Logo — replace /logo.svg in public/ to update everywhere */}
+                            <Image src="/logo.svg" alt="BharatBloomm FarmTech Logo" width={60} height={60} />
+                            <h3 style={{ fontSize: '1.5rem', color: 'white', fontFamily: "'Playfair Display', serif" }}>
+                                BharatBloomm FarmTech
+                            </h3>
                         </div>
-
-                        <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.865rem', lineHeight: 1.7, marginBottom: '24px' }}>
-                            <em>"Cultivating the Future with Technology"</em><br /><br />
-                            India's leading AgriTech platform empowering 92,000+ farmers with AI-powered insights and smart farming solutions.
+                        <p style={{ lineHeight: 1.7, opacity: 0.9, marginBottom: '20px', color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem' }}>
+                            Cultivating the Future with Technology. Leading India&apos;s agricultural revolution with innovative battery-operated tools powered by lithium technology.
                         </p>
-
-                        {/* Social icons */}
                         <div style={{ display: 'flex', gap: '12px' }}>
-                            {[
-                                { icon: '𝕏', label: 'Twitter' },
-                                { icon: 'in', label: 'LinkedIn' },
-                                { icon: '▶', label: 'YouTube' },
-                                { icon: 'f', label: 'Facebook' },
-                                { icon: '📷', label: 'Instagram' },
-                            ].map((social) => (
-                                <a
-                                    key={social.label}
-                                    href="#"
-                                    aria-label={social.label}
-                                    style={{
-                                        width: '36px',
-                                        height: '36px',
-                                        borderRadius: '8px',
-                                        background: 'rgba(255,255,255,0.08)',
-                                        border: '1px solid rgba(255,255,255,0.12)',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        color: 'rgba(255,255,255,0.6)',
-                                        fontSize: '0.8rem',
-                                        fontWeight: 700,
-                                        textDecoration: 'none',
-                                        transition: 'all 0.2s ease',
-                                    }}
-                                >
-                                    {social.icon}
-                                </a>
+                            {socialIcons.map((s, i) => (
+                                <a key={i} href="#" aria-label={s.label} style={{
+                                    width: 40, height: 40,
+                                    background: 'rgba(255,255,255,0.1)',
+                                    borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    color: 'white', textDecoration: 'none', fontSize: '0.95rem',
+                                    transition: 'all 0.3s ease',
+                                }}
+                                    onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#A5D6A7'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-3px)'; }}
+                                    onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.1)'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; }}
+                                >{s.icon}</a>
                             ))}
                         </div>
                     </div>
 
-                    {/* Link columns */}
-                    {Object.entries(footerLinks).map(([category, links]) => (
-                        <div key={category}>
-                            <h3 style={{
-                                fontWeight: 700,
-                                color: 'white',
-                                marginBottom: '20px',
-                                letterSpacing: '0.05em',
-                                textTransform: 'uppercase',
-                                fontSize: '0.78rem',
-                            }}>
-                                {category}
-                            </h3>
-                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                {links.map((link) => (
-                                    <li key={link.label}>
-                                        <Link
-                                            href={link.href}
-                                            style={{
-                                                color: 'rgba(255,255,255,0.55)',
-                                                textDecoration: 'none',
-                                                fontSize: '0.86rem',
-                                                transition: 'color 0.2s ease',
-                                                lineHeight: 1.3,
-                                            }}
-                                            onMouseEnter={(e) => (e.target as HTMLElement).style.color = '#8cc63f'}
-                                            onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'rgba(255,255,255,0.55)'}
-                                        >
-                                            {link.label}
-                                        </Link>
+                    {/* Link Columns */}
+                    {footerColumns.map((col, i) => (
+                        <div key={i}>
+                            <h4 style={{ fontSize: '1.2rem', marginBottom: '20px', color: 'white', fontFamily: "'Playfair Display', serif" }}>{col.title}</h4>
+                            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                {col.links.map((link, j) => (
+                                    <li key={j}>
+                                        <Link href={link.href} style={{
+                                            color: 'rgba(255,255,255,0.8)', textDecoration: 'none',
+                                            transition: 'all 0.3s ease', display: 'inline-block', fontSize: '0.95rem',
+                                        }}
+                                            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.color = '#A5D6A7'; (e.currentTarget as HTMLElement).style.transform = 'translateX(5px)'; }}
+                                            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.8)'; (e.currentTarget as HTMLElement).style.transform = 'translateX(0)'; }}
+                                        >{link.label}</Link>
                                     </li>
                                 ))}
                             </ul>
@@ -141,83 +97,17 @@ export default function Footer() {
                     ))}
                 </div>
 
-                {/* Newsletter */}
-                <div style={{
-                    marginTop: '48px',
-                    padding: '32px',
-                    background: 'rgba(45,122,58,0.15)',
-                    borderRadius: '16px',
-                    border: '1px solid rgba(45,122,58,0.3)',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    gap: '24px',
-                    flexWrap: 'wrap',
-                }}>
-                    <div>
-                        <div style={{ fontWeight: 700, color: 'white', marginBottom: '4px' }}>
-                            📧 Subscribe to FarmTech Insights
-                        </div>
-                        <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>
-                            Get weekly agritech news, crop tips, and market intelligence delivered to your inbox.
-                        </div>
-                    </div>
-                    <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                        <input
-                            type="email"
-                            placeholder="Enter your email address"
-                            style={{
-                                padding: '12px 20px',
-                                borderRadius: '50px',
-                                border: '1px solid rgba(255,255,255,0.2)',
-                                background: 'rgba(255,255,255,0.08)',
-                                color: 'white',
-                                fontSize: '0.9rem',
-                                minWidth: '260px',
-                                outline: 'none',
-                            }}
-                        />
-                        <button
-                            className="btn-primary"
-                            style={{ whiteSpace: 'nowrap', padding: '12px 24px' }}
-                        >
-                            Subscribe →
-                        </button>
-                    </div>
+                {/* Footer Bottom */}
+                <div style={{ padding: '24px 0', textAlign: 'center', opacity: 0.8, fontSize: '0.9rem' }}>
+                    <p>© 2025 BharatBloomm FarmTech Private Limited. All Rights Reserved.</p>
                 </div>
             </div>
 
-            {/* Bottom bar */}
-            <div style={{
-                borderTop: '1px solid rgba(255,255,255,0.08)',
-                padding: '24px',
-            }}>
-                <div style={{
-                    maxWidth: '1200px',
-                    margin: '0 auto',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    flexWrap: 'wrap',
-                    gap: '12px',
-                }}>
-                    <div style={{ fontSize: '0.82rem', color: 'rgba(255,255,255,0.4)' }}>
-                        © 2026 BharatBloomm FarmTech Private Limited. All rights reserved. | CIN: U01409MH2024PTC000001
-                    </div>
-                    <div style={{ display: 'flex', gap: '20px' }}>
-                        {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((policy) => (
-                            <Link
-                                key={policy}
-                                href={`/${policy.toLowerCase().replace(/ /g, '-')}`}
-                                style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}
-                            >
-                                {policy}
-                            </Link>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
+            <style>{`
+        @media (max-width: 968px) {
+          footer .container > div:first-child { grid-template-columns: 1fr !important; gap: 32px !important; }
+        }
+      `}</style>
         </footer>
     );
 }

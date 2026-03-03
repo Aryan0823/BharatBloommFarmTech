@@ -10,6 +10,14 @@ const nextConfig: NextConfig = {
         hostname: '*.supabase.co',
         pathname: '/storage/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'sspark.genspark.ai',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.genspark.ai',
+      },
     ],
   },
 };

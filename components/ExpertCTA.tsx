@@ -1,142 +1,78 @@
-import Link from 'next/link';
+'use client';
+import { useEffect, useRef } from 'react';
+
+const techCards = [
+    {
+        icon: '🔋',
+        title: 'Lithium-Ion Cells',
+        desc: 'High energy density delivers powerful performance. Fast recharge capabilities and extended cycle life ensure long-term reliability and cost-effectiveness.',
+    },
+    {
+        icon: '💻',
+        title: 'Smart Power Management',
+        desc: 'Intelligent Battery Management System (BMS) optimizes power delivery, ensures safety, and maximizes efficiency across all operating conditions.',
+    },
+    {
+        icon: '📡',
+        title: 'IoT-Ready Platforms',
+        desc: 'Future-ready connectivity enables smart farm integration. Monitor performance, track usage, and optimize operations with digital farming capabilities.',
+    },
+];
 
 export default function ExpertCTA() {
+    const ref = useRef<HTMLElement>(null);
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        el.querySelectorAll('.tech-card').forEach(card => {
+            const observer = new IntersectionObserver(([entry]) => {
+                if (entry.isIntersecting) card.classList.add('visible');
+            }, { threshold: 0.1 });
+            observer.observe(card);
+        });
+    }, []);
+
     return (
-        <section
-            id="experts"
-            style={{
-                position: 'relative',
-                overflow: 'hidden',
-                margin: '0',
-                padding: '80px 24px',
-                background: 'linear-gradient(135deg, #1a4d24 0%, #2d7a3a 40%, #4caf62 80%, #8cc63f 100%)',
-            }}
-        >
-            {/* Background pattern */}
+        <section id="technology" ref={ref} style={{
+            padding: '100px 0',
+            background: 'linear-gradient(135deg, #4CAF50, #2E7D32)',
+            position: 'relative',
+            overflow: 'hidden',
+        }}>
+            {/* Blob */}
             <div style={{
-                position: 'absolute', inset: 0,
-                backgroundImage: 'url("/hero-bg.png")',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                opacity: 0.12,
+                position: 'absolute', top: '-50%', right: '-20%',
+                width: 600, height: 600,
+                background: 'rgba(255,255,255,0.1)',
+                borderRadius: '50%', filter: 'blur(100px)',
             }} />
 
-            {/* Decorative circles */}
-            <div style={{ position: 'absolute', top: '-60px', right: '-60px', width: '300px', height: '300px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)' }} />
-            <div style={{ position: 'absolute', bottom: '-80px', left: '-40px', width: '250px', height: '250px', borderRadius: '50%', background: 'rgba(255,255,255,0.04)' }} />
-
-            <div style={{ maxWidth: '1100px', margin: '0 auto', position: 'relative', textAlign: 'center' }}>
-                <div style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '8px',
-                    background: 'rgba(255,255,255,0.15)',
-                    border: '1px solid rgba(255,255,255,0.25)',
-                    borderRadius: '50px',
-                    padding: '6px 20px',
-                    marginBottom: '28px',
-                }}>
-                    <span style={{ color: '#b5e05a', fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.08em' }}>
-                        🤝 EXPERT COLLABORATION
-                    </span>
+            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                <div className="section-title">
+                    <h2 style={{ color: 'white' }}>Powered by Advanced Lithium Technology</h2>
+                    <p style={{ color: 'rgba(255,255,255,0.85)' }}>Next-generation battery systems engineered for agricultural excellence</p>
                 </div>
 
-                <h2 style={{
-                    fontFamily: "'Playfair Display', serif",
-                    fontSize: 'clamp(1.8rem, 4vw, 3.2rem)',
-                    fontWeight: 800,
-                    color: 'white',
-                    lineHeight: 1.2,
-                    marginBottom: '20px',
-                }}>
-                    Collaborate and learn from<br />
-                    industry experts and enthusiasts
-                </h2>
-
-                <p style={{
-                    fontSize: '1.05rem',
-                    color: 'rgba(255,255,255,0.8)',
-                    maxWidth: '600px',
-                    margin: '0 auto 40px',
-                    lineHeight: 1.7,
-                }}>
-                    Join our network of 500+ agricultural scientists, agronomists, and farming innovators. Access exclusive webinars, field visits, and mentorship programs designed to elevate your farming knowledge.
-                </p>
-
-                <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '48px' }}>
-                    <Link
-                        href="#contact"
-                        style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '8px',
-                            background: 'white',
-                            color: '#2d7a3a',
-                            fontWeight: 700,
-                            padding: '16px 36px',
-                            borderRadius: '50px',
-                            textDecoration: 'none',
-                            fontSize: '1rem',
+                <div className="tech-grid">
+                    {techCards.map((card, i) => (
+                        <div key={i} className="tech-card slide-up" style={{
+                            background: 'rgba(255,255,255,0.6)',
+                            backdropFilter: 'blur(16px)',
+                            border: '1px solid rgba(255,255,255,0.3)',
+                            borderRadius: '20px',
+                            padding: '40px 32px',
+                            textAlign: 'center',
+                            boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
                             transition: 'all 0.3s ease',
-                            boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
                         }}
-                    >
-                        Join Community →
-                    </Link>
-                    <Link
-                        href="#services"
-                        style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '8px',
-                            background: 'transparent',
-                            color: 'white',
-                            fontWeight: 600,
-                            padding: '15px 32px',
-                            borderRadius: '50px',
-                            border: '2px solid rgba(255,255,255,0.5)',
-                            textDecoration: 'none',
-                            fontSize: '1rem',
-                            transition: 'all 0.3s ease',
-                            backdropFilter: 'blur(10px)',
-                        }}
-                    >
-                        View Programs
-                    </Link>
-                </div>
-
-                {/* Expert avatars */}
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0' }}>
-                    {['👨‍🌾', '👩‍🔬', '👨‍💻', '👩‍🌾', '🧑‍🔬'].map((emoji, i) => (
-                        <div
-                            key={i}
-                            style={{
-                                width: '52px',
-                                height: '52px',
-                                borderRadius: '50%',
-                                border: '3px solid rgba(255,255,255,0.5)',
-                                background: 'linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1))',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                fontSize: '1.5rem',
-                                marginLeft: i === 0 ? '0' : '-16px',
-                                backdropFilter: 'blur(10px)',
-                                zIndex: 5 - i,
-                                position: 'relative',
-                            }}
+                            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(-8px)'; (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.9)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 16px 48px rgba(0,0,0,0.15)'; }}
+                            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = 'translateY(0)'; (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.6)'; (e.currentTarget as HTMLElement).style.boxShadow = '0 8px 32px rgba(0,0,0,0.1)'; }}
                         >
-                            {emoji}
+                            <div style={{ fontSize: '3rem', marginBottom: '20px' }}>{card.icon}</div>
+                            <h3 style={{ fontSize: '1.4rem', marginBottom: '12px', color: '#1B1B1B' }}>{card.title}</h3>
+                            <p style={{ color: '#555', lineHeight: 1.7 }}>{card.desc}</p>
                         </div>
                     ))}
-                    <div style={{
-                        marginLeft: '16px',
-                        color: 'rgba(255,255,255,0.85)',
-                        fontSize: '0.9rem',
-                        fontWeight: 600,
-                    }}>
-                        500+ Expert Members
-                    </div>
                 </div>
             </div>
         </section>
