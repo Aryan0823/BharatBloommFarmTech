@@ -1,44 +1,60 @@
 /**
- * server.js — Custom Next.js server for Phusion Passenger (cPanel/mPanel Node.js App)
+ * BharatBloomm FarmTech — mPanel Node.js Gateway Server
+ * ────────────────────────────────────────────────────────────────
+ * This is a lightweight Express.js server that serves the pre-built
+ * Next.js static files from the `out/` directory.
  *
- * USE THIS ONLY for the "Node.js Application" option in mPanel.
- * For static export (shared hosting), you don't need this file.
+ * HOW IT WORKS:
+ *  1. You build Next.js on your Mac → generates the `out/` folder
+ *  2. You upload THIS file + the `out/` folder + package.json to mPanel
+ *  3. mPanel runs this server as the Node.js application
+ *  4. Express serves all the static pages at high speed
  *
- * mPanel Setup:
- *   - Node.js version: 18.x or higher
- *   - Application startup file: server.js
- *   - Application root: (your app directory on the server)
- *   - After upload, click "Run NPM Install" then "Restart"
+ * MILSWEB mPanel SETUP:
+ *  - Startup file : server.js
+ *  - Node.js version : 18.x or 20.x
+ *  - After upload: click "Run NPM Install" then "Restart"
  */
 
-const { createServer } = require('http');
-const { parse } = require('url');
-const next = require('next');
+const express = require('express');
+const path = require('path');
+const fs = require('fs');
 
-const dev = process.env.NODE_ENV !== 'production';
-const hostname = process.env.HOST || 'localhost';
-const port = parseInt(process.env.PORT || '3000', 10);
+const app = express();
+const PORT = process.env.PORT || 3000;
+const STATIC_DIR = path.join(__dirname, 'out');
 
-// When using `output: 'standalone'` in next.config, replace 'next' import path
-const app = next({ dev, hostname, port });
-const handle = app.getRequestHandler();
+// ── Serve static Next.js output ──────────────────────────────────
+app.use(express.static(STATIC_DIR, {
+    extensions: ['html'],   // allows /admin → /admin.html automatically
+    index: 'index.html',
+    maxAge: '1d',           // cache static assets for 1 day
+}));
 
-app.prepare().then(() => {
-    createServer(async (req, res) => {
-        try {
-            const parsedUrl = parse(req.url, true);
-            await handle(req, res, parsedUrl);
-        } catch (err) {
-            console.error('Error occurred handling', req.url, err);
-            res.statusCode = 500;
-            res.end('Internal Server Error');
-        }
-    })
-        .once('error', (err) => {
-            console.error(err);
-            process.exit(1);
-        })
-        .listen(port, () => {
-            console.log(`> BharatBloomm FarmTech ready on http://${hostname}:${port}`);
-        });
+// ── Handle clean URLs (Next.js-style) ────────────────────────────
+// e.g. /products/oll-340 → out/products/oll-340.html
+app.get('*', (req, res) => {
+    // Try: out/[path].html
+    const safePath = req.path.replace(/\.\./g, ''); // prevent path traversal
+    const htmlFile = path.join(STATIC_DIR, `${safePath}.html`);
+    const indexFile = path.join(STATIC_DIR, safePath, 'index.html');
+    const notFound = path.join(STATIC_DIR, '404.html');
+
+    if (fs.existsSync(htmlFile)) {
+        return res.sendFile(htmlFile);
+    }
+    if (fs.existsSync(indexFile)) {
+        return res.sendFile(indexFile);
+    }
+    // Fallback to 404 page
+    if (fs.existsSync(notFound)) {
+        return res.status(404).sendFile(notFound);
+    }
+    res.status(404).send('Page not found');
+});
+
+// ── Start server ─────────────────────────────────────────────────
+app.listen(PORT, () => {
+    console.log(`✅ BharatBloomm FarmTech running on port ${PORT}`);
+    console.log(`   Serving static files from: ${STATIC_DIR}`);
 });
