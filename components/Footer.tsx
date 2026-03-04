@@ -54,7 +54,7 @@ export default function Footer() {
                             {/* ✏️ Logo — replace /logo.svg in public/ to update everywhere */}
                             <Image src="/logo.svg" alt="BharatBloomm FarmTech Logo" width={60} height={60} />
                             <h3 style={{ fontSize: '1.5rem', color: 'white', fontFamily: "'Playfair Display', serif" }}>
-                                BharatBloomm FarmTech
+                                BharatBloomm FarmTech Private Limited
                             </h3>
                         </div>
                         <p style={{ lineHeight: 1.7, opacity: 0.9, marginBottom: '20px', color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem' }}>

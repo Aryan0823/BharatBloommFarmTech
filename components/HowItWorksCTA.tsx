@@ -27,7 +27,7 @@ export default function HowItWorksCTA() {
                         Collaborate and Grow with India&apos;s Leading AgriTech Company
                     </h2>
                     <p style={{ fontSize: '1.2rem', marginBottom: '32px', color: '#555' }}>
-                        Join thousands of farmers transforming their fields with BharatBloomm FarmTech
+                        Join thousands of farmers transforming their fields with BharatBloomm FarmTech Private Limited
                     </p>
                     <a href="#contact" style={{
                         padding: '18px 48px',

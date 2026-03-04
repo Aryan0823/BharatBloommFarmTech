@@ -42,7 +42,7 @@ export default function Navbar() {
             background: 'linear-gradient(135deg, #4CAF50, #2E7D32)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
           }}>
-            BharatBloomm FarmTech
+            BharatBloomm FarmTech Private Limited
           </span>
         </Link>
 

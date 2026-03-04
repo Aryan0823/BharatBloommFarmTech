@@ -2,7 +2,7 @@
 import { useRef, useState } from 'react';
 
 const infoCards = [
-    { icon: '📍', title: 'Visit Us', lines: ['BharatBloomm FarmTech Pvt Ltd', 'Innovation Hub, Bangalore', 'Karnataka, India'] },
+    { icon: '📍', title: 'Visit Us', lines: ['BharatBloomm FarmTech Private Limited', 'Innovation Hub, Bangalore', 'Karnataka, India'] },
     { icon: '✉️', title: 'Email Us', lines: ['info@bharatbloomm.com', 'sales@bharatbloomm.com'] },
     { icon: '📞', title: 'Call Us', lines: ['+91 98765 43210', '+91 98765 43211'] },
 ];
