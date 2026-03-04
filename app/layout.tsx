@@ -6,6 +6,11 @@ export const metadata: Metadata = {
   description:
     'BharatBloomm FarmTech – Cultivating the Future with Technology. India\'s leading agricultural technology company empowering 92,000+ farmers with AI-powered crop monitoring, smart irrigation, and precision farming solutions.',
   keywords: 'agritech, smart farming, India agriculture, crop monitoring, precision farming, BharatBloomm, FarmTech',
+  icons: {
+    icon: '/logo.svg',
+    shortcut: '/logo.svg',
+    apple: '/logo.svg',
+  },
   openGraph: {
     title: 'BharatBloomm FarmTech Private Limited',
     description: 'Cultivating the Future with Technology – Smart solutions for Indian farmers.',
@@ -13,6 +18,7 @@ export const metadata: Metadata = {
     locale: 'en_IN',
   },
 };
+
 
 export default function RootLayout({
   children,
