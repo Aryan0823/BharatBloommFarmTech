@@ -2,9 +2,9 @@
 import { useRef, useState } from 'react';
 
 const infoCards = [
-    { icon: '📍', title: 'Visit Us', lines: ['BharatBloomm FarmTech Private Limited', 'Innovation Hub, Bangalore', 'Karnataka, India'] },
+    { icon: '📍', title: 'Visit Us', lines: ['BharatBloomm FarmTech Private Limited', '66/P1 Dantarvad, Harij', 'Gujarat, India'] },
     { icon: '✉️', title: 'Email Us', lines: ['info@bharatbloomm.com', 'sales@bharatbloomm.com'] },
-    { icon: '📞', title: 'Call Us', lines: ['+91 98765 43210', '+91 98765 43211'] },
+    { icon: '📞', title: 'Call Us', lines: ['+91 99999 99999', '+91 99999 99999'] },
 ];
 
 export default function Contact() {

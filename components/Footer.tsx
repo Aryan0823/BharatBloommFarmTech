@@ -54,7 +54,8 @@ export default function Footer() {
                             {/* ✏️ Logo — replace /logo.svg in public/ to update everywhere */}
                             <Image src="/logo.svg" alt="BharatBloomm FarmTech Logo" width={60} height={60} />
                             <h3 style={{ fontSize: '1.5rem', color: 'white', fontFamily: "'Playfair Display', serif" }}>
-                                BharatBloomm FarmTech Private Limited
+                                BharatBloomm FarmTech <br />
+                                Private Limited
                             </h3>
                         </div>
                         <p style={{ lineHeight: 1.7, opacity: 0.9, marginBottom: '20px', color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem' }}>
@@ -99,7 +100,7 @@ export default function Footer() {
 
                 {/* Footer Bottom */}
                 <div style={{ padding: '24px 0', textAlign: 'center', opacity: 0.8, fontSize: '0.9rem' }}>
-                    <p>© 2025 BharatBloomm FarmTech Private Limited. All Rights Reserved.</p>
+                    <p>© 2026 BharatBloomm FarmTech Private Limited. All Rights Reserved.</p>
                 </div>
             </div>
 
