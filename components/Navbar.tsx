@@ -14,11 +14,11 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { label: 'Home', href: '#home' },
-    { label: 'Products', href: '#products' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Technology', href: '#technology' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: '/' },
+    { label: 'Products', href: '/products' },
+    { label: 'About Us', href: '/#about' },
+    { label: 'Technology', href: '/#technology' },
+    { label: 'Contact', href: '/#contact' },
   ];
 
   return (
