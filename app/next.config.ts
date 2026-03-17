@@ -1,0 +1,25 @@
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  images: {
+    qualities: [75, 90],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.supabase.co',
+        pathname: '/storage/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'sspark.genspark.ai',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.genspark.ai',
+      },
+    ],
+  },
+};
+
+export default nextConfig;

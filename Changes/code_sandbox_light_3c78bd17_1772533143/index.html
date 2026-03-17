@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BharatBloomm FarmTech Private Limited - Leading AgriTech company offering battery-operated lithium agriculture tools. Cultivating the Future with Technology.">
+    <title>BharatBloomm FarmTech Private Limited - Cultivating the Future with Technology</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-green: #4CAF50;
+            --dark-green: #2E7D32;
+            --light-green: #A5D6A7;
+            --text-dark: #1B1B1B;
+            --text-muted: #555555;
+            --white: #FFFFFF;
+            --footer-dark: #1B4332;
+            --glass-bg: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-dark: rgba(0, 0, 0, 0.08);
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.6;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 12px 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .nav-logo {
+            height: 48px;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled .nav-logo {
+            height: 40px;
+        }
+        
+        .nav-brand-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav-cta {
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white !important;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+        }
+        
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(76, 175, 80, 0.4);
+        }
+        
+        .nav-cta::after {
+            display: none;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(46, 125, 50, 0.05));
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(165, 214, 167, 0.15), rgba(76, 175, 80, 0.08));
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+        }
+        
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-text .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.2s backwards;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease 0.4s backwards;
+        }
+        
+        .btn-primary {
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-outline {
+            padding: 16px 36px;
+            background: transparent;
+            color: var(--primary-green);
+            border: 2px solid var(--primary-green);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-green);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .hero-image-wrapper {
+            position: relative;
+            animation: fadeInRight 1s ease 0.3s backwards;
+        }
+        
+        .hero-image-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 2px solid var(--primary-green);
+            border-radius: 20px;
+            padding: 12px;
+            box-shadow: 0 12px 48px rgba(76, 175, 80, 0.2);
+        }
+        
+        .hero-image-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+        
+        .floating-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 32px;
+        }
+        
+        .stat-badge {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 16px 20px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .stat-badge:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+        
+        .stat-badge:nth-child(3) {
+            animation-delay: 1s;
+        }
+        
+        .stat-badge:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+        
+        .stat-badge h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin-bottom: 4px;
+        }
+        
+        .stat-badge p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            padding: 48px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+        
+        .stat-item {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--dark-green);
+        }
+        
+        .stat-item i {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .stat-item h3 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            color: inherit;
+        }
+        
+        .stat-item p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .about-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .about-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .about-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+        }
+        
+        .about-card i {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        
+        .about-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        .about-image-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 16px;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+        
+        /* Products Section */
+        .products-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        .product-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: rgba(0, 0, 0, 0.02);
+        }
+        
+        .product-content {
+            padding: 24px;
+        }
+        
+        .product-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .product-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+        
+        .product-content p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .product-btn {
+            width: 100%;
+            padding: 12px;
+            background: transparent;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .product-btn:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, rgba(76, 175, 80, 0.03), var(--white));
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        
+        .step-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 24px;
+            box-shadow: 0 4px 16px rgba(76, 175, 80, 0.3);
+        }
+        
+        .step-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .step-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        /* Why Choose Us */
+        .why-choose {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .why-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .feature-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 28px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--primary-green);
+            min-width: 50px;
+        }
+        
+        .feature-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        
+        .feature-text p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        .why-image-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 16px;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.1);
+        }
+        
+        .why-image-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+        }
+        
+        /* Technology Section */
+        .technology-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .technology-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            filter: blur(100px);
+        }
+        
+        .technology-section .section-title h2,
+        .technology-section .section-title p {
+            color: white;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tech-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+        }
+        
+        .tech-card i {
+            font-size: 3rem;
+            color: var(--dark-green);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .tech-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        
+        .tech-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        .testimonial-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-left: 4px solid var(--primary-green);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+        }
+        
+        .stars {
+            color: #FFC107;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+        
+        .testimonial-card p {
+            color: var(--text-muted);
+            font-style: italic;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+        
+        .author-info span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        /* CTA Banner */
+        .cta-banner {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.95), rgba(46, 125, 50, 0.95)),
+                        url('https://sspark.genspark.ai/cfimages?u1=tHVYUIV2wtlaHrQKVwkOIv2RZvhnWCwpxhEatR5pluqB3GKF7UccqCgox5HTVx9UfqlVldsvqMbzVcmNqyln06JIsa94OsLKaZ8QvYngI3i3996G%2FZLo8rfyhJNjR75I8K%2F5rpivtxE%3D&u2=Q3bGJwDN1G7ndbf1&width=2560');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+            color: var(--text-muted);
+        }
+        
+        .cta-button {
+            padding: 18px 48px;
+            background: white;
+            color: var(--primary-green);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+        }
+        
+        .contact-form {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            background: white;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(76, 175, 80, 0.3);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .info-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 28px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+        }
+        
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-green), var(--dark-green));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .info-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        
+        .info-text p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        .map-placeholder {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+        
+        .map-placeholder i {
+            font-size: 4rem;
+            color: var(--primary-green);
+            margin-bottom: 16px;
+        }
+        
+        .map-placeholder h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        
+        .map-placeholder p {
+            color: var(--text-muted);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--footer-dark);
+            color: white;
+            padding: 60px 0 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .footer-logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .footer-logo {
+            height: 80px;
+            width: auto;
+        }
+        
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .footer-brand p {
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--light-green);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--light-green);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            padding: 24px 0;
+            text-align: center;
+            opacity: 0.8;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .slide-up {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .slide-up.visible {
+            animation: slideUp 0.8s ease forwards;
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content,
+            .about-content,
+            .why-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .products-grid,
+            .steps-grid,
+            .tech-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero {
+                padding: 120px 0 60px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .floating-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-content {
+                padding: 40px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-brand">
+                <img src="https://www.genspark.ai/api/files/s/542sDh1N" alt="BharatBloomm FarmTech Logo" class="nav-logo" loading="lazy">
+                <span class="nav-brand-text gradient-text">BharatBloomm FarmTech</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Cultivating the Future with <span class="gradient-text">Technology</span></h1>
+                    <p class="subtitle">Empowering Indian farmers with cutting-edge battery-operated agricultural tools powered by lithium technology. Experience multipurpose, innovative, and eco-friendly farming solutions designed for modern agriculture.</p>
+                    <div class="hero-buttons">
+                        <a href="#products" class="btn-primary">Explore Products</a>
+                        <a href="#about" class="btn-outline">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-card">
+                        <img src="https://sspark.genspark.ai/cfimages?u1=I6AHtSfsTiMgKXkcNz2D0MdkbAxu61iSF%2BjDaPYPixcNm9pfAm3hmaxv%2FkO19rvCU3wo%2F1u%2BqNFOaosrNNE%2BCFeiiKNeEWVGvzgrmA%3D%3D&u2=Q%2FkD%2F3XvXsnN%2BsH5&width=2560" alt="Modern Farming Technology" loading="lazy">
+                    </div>
+                    <div class="floating-stats">
+                        <div class="stat-badge">
+                            <h3>500+</h3>
+                            <p>Farmers Served</p>
+                        </div>
+                        <div class="stat-badge">
+                            <h3>15+</h3>
+                            <p>Products</p>
+                        </div>
+                        <div class="stat-badge">
+                            <h3>100%</h3>
+                            <p>Battery Powered</p>
+                        </div>
+                        <div class="stat-badge">
+                            <h3>5 States</h3>
+                            <p>Pan India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <i class="fas fa-tools"></i>
+                    <h3>15</h3>
+                    <p>Premium Products</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <h3>36,000+</h3>
+                    <p>Satisfied Customers</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-tractor"></i>
+                    <h3>6,428</h3>
+                    <p>Farms Equipped</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-smile"></i>
+                    <h3>92K</h3>
+                    <p>Happy Users</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Smart Farming Support for All Types of Farms</h2>
+                <p>Revolutionizing agriculture with innovative lithium battery-powered solutions</p>
+            </div>
+            <div class="about-content">
+                <div class="about-cards">
+                    <div class="about-card">
+                        <i class="fas fa-battery-full"></i>
+                        <h3>Battery-Powered Tools</h3>
+                        <p>Our advanced lithium battery technology ensures long-lasting performance with zero emissions. Perfect for sustainable farming practices and reducing carbon footprint across Indian farms.</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-cogs"></i>
+                        <h3>Multipurpose Equipment</h3>
+                        <p>Designed for versatility, our tools serve multiple farming needs - from tilling and cultivation to planting and harvesting. One investment, countless applications for your farm.</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Innovative Technology</h3>
+                        <p>Combining cutting-edge engineering with practical farming wisdom. Our equipment is built to handle the diverse challenges of modern Indian agriculture with smart, efficient solutions.</p>
+                    </div>
+                </div>
+                <div class="about-image-card">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=dbpFBs3E6zhXuVKZx3dEl0aJU1koHzsEvl2S8SrP4iSkz3d9b2PgxmTx5C8szG7N%2F1lZmj93WUFlgyxacqFaxbjyaNmtV5iqMFc86AsV%2FqmFLe1teULp47zZTNQVR0%2FC2LSDldWb%2FL756673I3Zp5xQ5&u2=5JpT1RqvDA0tgQNr&width=2560" alt="Electric Farm Tractor" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Premium Battery-Operated Tools</h2>
+                <p>Best quality lithium-powered equipment for modern Indian farming</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=dQrEW8LLBM8luaybD%2BhX7aPtFvB8F%2FMmD%2FbBmco8UARxVQvxG8nIMaB0cIbq3HZUJxQpNkqfi7MywEYSt42Zl%2Bbj6xDnYzC%2F%2Fus0lEg2HeUVpyLPcPQGWXFCDsGfpgCld0CPaFRCt7GD2vhdkVUc%2Fkb6wo4EudGxTKw0F0WLld6IAx1NzuKah5oRVuYxOdYT1dwMQm7exYOfE%2FCws5Wd2QQtbwK4g5MBTumSJb4I3jLKeqM1wKyFMpdxLiB8vRWe8fr%2BsGSTPo0%3D&u2=KVsHtfZSEbm568Io&width=2560" alt="Cordless Tiller" class="product-image" loading="lazy">
+                    <div class="product-content">
+                        <span class="product-badge">Lithium Powered</span>
+                        <h3>Cordless Tiller/Cultivator</h3>
+                        <p>Perfect for soil cultivation, weed removal, and garden tilling. Lightweight design with powerful lithium battery for extended operation hours.</p>
+                        <button class="product-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=dbpFBs3E6zhXuVKZx3dEl0aJU1koHzsEvl2S8SrP4iSkz3d9b2PgxmTx5C8szG7N%2F1lZmj93WUFlgyxacqFaxbjyaNmtV5iqMFc86AsV%2FqmFLe1teULp47zZTNQVR0%2FC2LSDldWb%2FL756673I3Zp5xQ5&u2=5JpT1RqvDA0tgQNr&width=2560" alt="Electric Tractor" class="product-image" loading="lazy">
+                    <div class="product-content">
+                        <span class="product-badge">Lithium Powered</span>
+                        <h3>Electric Farm Tractor</h3>
+                        <p>The future of farming with zero emissions. High-capacity lithium batteries deliver consistent power for all-day field operations.</p>
+                        <button class="product-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=rBD5hX%2FNJwMKAZePr5VbrOycBnlAJrjZFS%2B5pHYlCN0LaSQ4HmvprG99PnhIB6T%2FpsoWVkR9RXC%2BxPUVne58Zi2MyCn3qQ5266Gd6hpZoApycqp8WPx%2BtZRaJjs8TvzL156d%2FHP9hL9444vYrDNIF4bWJqgdza9A&u2=Ws94fiX6pb%2F15OBA&width=2560" alt="Farming Robot" class="product-image" loading="lazy">
+                    <div class="product-content">
+                        <span class="product-badge">Lithium Powered</span>
+                        <h3>Smart Farming Robots</h3>
+                        <p>AI-powered autonomous farming robots with advanced lithium battery systems. Automate planting, monitoring, and crop management tasks.</p>
+                        <button class="product-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=F7D08NLe%2BnInqlYz5LIV03%2BaZ%2BBC3HC7CWvE%2BWL0PmdLO42BVukmwgbXmDyzh221u0OgCbAkfSxLWknArMfQEwgCh4QIQwWWlBGTCRQ8kq9eh4WUrZtwlw%3D%3D&u2=CTT2rxq4uAwNC85G&width=2560" alt="Vine Tying Machine" class="product-image" loading="lazy">
+                    <div class="product-content">
+                        <span class="product-badge">Lithium Powered</span>
+                        <h3>Plant Vine Tying Machine</h3>
+                        <p>Efficient battery-operated vine tying solution for vineyards and climbing crops. Reduces manual labor while ensuring precise plant support.</p>
+                        <button class="product-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=EsYbANrTCpwc2oE3fBmHO8ObYFFivuAmFbsziCEfnTBXgHWShpd3sy7re6shlX4hJNI%2F4NjSdQmyctc7zMk1y5jUuXRi8SCL9s6aJQQQFmFjyuqW5EVb0WlvwNwpQUIgCRlD6146u9XVyDViK%2FxYw%2BNpRA3tqsghu%2FQB07im573gslFNxa8MGd6%2BAz6x&u2=WEC1IhSiFDg%2FIQXI&width=2560" alt="Cordless Power Tools" class="product-image" loading="lazy">
+                    <div class="product-content">
+                        <span class="product-badge">Lithium Powered</span>
+                        <h3>Cordless Power Tools</h3>
+                        <p>Complete range of lithium-ion powered tools for farm maintenance, repairs, and construction. Professional-grade performance without cords.</p>
+                        <button class="product-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=mdWGRuRu7M9coEOeb4R6j9ABXVktebjsEF%2BYA7dzlWYyIQTH3fnvE3IIcBNZ%2BfxWJGlXz4wiz1BLiwMIzmTRjMosDLAleBPoHHRDCcJDFM2IjluHl%2B8UHRWKsfCcwotTxIZN6OAislEodpqsk5kzM%2F%2FAvN8r5fs0%2B41RVwol8PnzM9TMNOIK%2BpFRrN6SWTuIAO61swmIPFDgsRDOQp2zLte2fyeVOLMD63igTg5VbGGgRBG%2FV%2B%2FigODg8VXJMdf0fp%2FLyaXOsNYgLUFnOx%2FH&u2=5m0OZTQN6PIhyiAl&width=2560" alt="Electric Tiller AT01" class="product-image" loading="lazy">
+                    <div class="product-content">
+                        <span class="product-badge">Lithium Powered</span>
+                        <h3>Electric Tiller AT01</h3>
+                        <p>Latest cordless electric tiller with advanced lithium battery technology. Ideal for small to medium farms with efficient soil preparation capabilities.</p>
+                        <button class="product-btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>See How We Transform Farming</h2>
+                <p>Three simple steps to modernize your agricultural operations</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Tool</h3>
+                    <p>Browse our comprehensive catalogue of lithium-powered equipment. Each tool is designed specifically for Indian farming conditions and crop requirements.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Easy Setup</h3>
+                    <p>Plug-free and ready to operate within minutes. Our battery-operated tools require no complicated installation - just charge and start farming smarter.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Farm Smarter</h3>
+                    <p>Reduce labor costs, save time, and maximize crop yield with efficient, eco-friendly technology. Experience the future of agriculture today.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why BharatBloomm?</h2>
+                <p>Key benefits that make us India's leading AgriTech company</p>
+            </div>
+            <div class="why-content">
+                <div class="features-list">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Long-lasting Lithium Battery</h3>
+                            <p>Up to 8 hours of continuous operation on a single charge. Fast recharge capability ensures minimal downtime and maximum productivity throughout your work day.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Eco-Friendly Operations</h3>
+                            <p>Zero emissions and minimal environmental impact. Contribute to green farming practices while reducing operational costs and promoting sustainable agriculture.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-wrench"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Multipurpose Tools</h3>
+                            <p>One tool serves many uses across different crops and farming activities. Maximize your investment with versatile equipment designed for diverse agricultural needs.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-flag"></i>
+                        </div>
+                        <div class="feature-text">
+                            <h3>Made for Indian Farms</h3>
+                            <p>Specifically engineered for diverse Indian terrains, climates, and crop varieties. Understanding local farming challenges to deliver optimal performance nationwide.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-image-card">
+                    <img src="https://sspark.genspark.ai/cfimages?u1=1sQxCdyr3Duhy%2BjlShcY3IohltN0UaSE9uMlupGQm65dIb5k2BBIVaHQBptYIhwAGJFut5beI%2B%2FYjF5fawLlY%2BxpGA52R6488B9nXvauHmjy7WNwpg%3D%3D&u2=gQNxcW7bFvGj5jHw&width=2560" alt="AgriTech Ecosystem" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology-section" id="technology">
+        <div class="container">
+            <div class="section-title">
+                <h2>Powered by Advanced Lithium Technology</h2>
+                <p>Next-generation battery systems engineered for agricultural excellence</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <i class="fas fa-battery-full"></i>
+                    <h3>Lithium-Ion Cells</h3>
+                    <p>High energy density delivers powerful performance. Fast recharge capabilities and extended cycle life ensure long-term reliability and cost-effectiveness.</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-microchip"></i>
+                    <h3>Smart Power Management</h3>
+                    <p>Intelligent Battery Management System (BMS) optimizes power delivery, ensures safety, and maximizes efficiency across all operating conditions.</p>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-wifi"></i>
+                    <h3>IoT-Ready Platforms</h3>
+                    <p>Future-ready connectivity enables smart farm integration. Monitor performance, track usage, and optimize operations with digital farming capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Farmers Say</h2>
+                <p>Real experiences from farmers across India</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"BharatBloomm's cordless tiller transformed my farming operations. The lithium battery lasts all day, and I've reduced my labor costs by 40%. Best investment I've made!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RS</div>
+                        <div class="author-info">
+                            <h4>Rajesh Singh</h4>
+                            <span>Punjab</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The electric tractor is a game-changer! Zero emissions, no diesel costs, and incredibly powerful. BharatBloomm's technology is truly the future of Indian agriculture."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">PD</div>
+                        <div class="author-info">
+                            <h4>Priya Deshmukh</h4>
+                            <span>Maharashtra</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Multipurpose tools from BharatBloomm work perfectly across my different crops. The battery power is reliable, and the equipment is easy to maintain. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AK</div>
+                        <div class="author-info">
+                            <h4>Arun Kumar</h4>
+                            <span>Karnataka</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Collaborate and Grow with India's Leading AgriTech Company</h2>
+                <p>Join thousands of farmers transforming their fields with BharatBloomm FarmTech</p>
+                <a href="#contact" class="cta-button">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get in Touch</h2>
+                <p>Ready to transform your farm? Contact us today</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your farming needs..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Visit Us</h3>
+                            <p>BharatBloomm FarmTech Pvt Ltd<br>Innovation Hub, Bangalore<br>Karnataka, India</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Email Us</h3>
+                            <p>info@bharatbloomm.com<br>sales@bharatbloomm.com</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-text">
+                            <h3>Call Us</h3>
+                            <p>+91 98765 43210<br>+91 98765 43211</p>
+                        </div>
+                    </div>
+                    <div class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h3>Serving All India</h3>
+                        <p>Available across multiple states with dedicated support teams</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo-wrapper">
+                        <img src="https://www.genspark.ai/api/files/s/542sDh1N" alt="BharatBloomm FarmTech Logo" class="footer-logo" loading="lazy">
+                        <h3>BharatBloomm FarmTech</h3>
+                    </div>
+                    <p>Cultivating the Future with Technology. Leading India's agricultural revolution with innovative battery-operated tools powered by lithium technology.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="#products">Cordless Tillers</a></li>
+                        <li><a href="#products">Electric Tractors</a></li>
+                        <li><a href="#products">Farming Robots</a></li>
+                        <li><a href="#products">Power Tools</a></li>
+                        <li><a href="#products">All Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#technology">Technology</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Careers</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">User Manuals</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BharatBloomm FarmTech Private Limited. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.glass-card, .step-card, .product-card, .feature-card, .tech-card, .testimonial-card, .info-card, .about-card, .stat-item').forEach(el => {
+            el.classList.add('slide-up');
+            observer.observe(el);
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                const data = Object.fromEntries(formData);
+                
+                // Show success message
+                alert('Thank you for your message! We will get back to you soon.');
+                
+                // Reset form
+                contactForm.reset();
+            });
+        }
+
+        // Mobile menu toggle (basic implementation)
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+
+        // Product card button interactions
+        document.querySelectorAll('.product-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const productCard = e.target.closest('.product-card');
+                const productName = productCard.querySelector('h3').textContent;
+                alert(`Interested in ${productName}? Please contact us for more details!`);
+            });
+        });
+
+        // Add loading complete class to body
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
