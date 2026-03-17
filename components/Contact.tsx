@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 const infoCards = [
     { icon: '📍', title: 'Visit Us', lines: ['BharatBloomm FarmTech Private Limited', '66/P1 Dantarvad, Harij', 'Gujarat, India'] },
     { icon: '✉️', title: 'Email Us', lines: ['info@bharatbloommfarmtech.com', ''] },
-    { icon: '📞', title: 'Call Us', lines: ['+91 99999 99999', '+91 99999 99999'] },
+    { icon: '📞', title: 'Call Us', lines: ['+91 9723555627'] },
 ];
 
 export default function Contact() {
